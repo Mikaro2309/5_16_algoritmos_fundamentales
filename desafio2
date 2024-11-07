@@ -1,0 +1,15 @@
+def buscar_calificacion(tabla, calificacion):
+    for i, fila in enumerate(tabla):
+        for j, valor in enumerate(fila):
+            if valor == calificacion:
+                return f"Calificación encontrada: Estudiante {i+1}, Materia {j+1}"
+    return "Calificación no encontrada"
+
+# Ejemplo de uso:
+tabla_calificaciones = [
+    [90, 85, 78],
+    [88, 92, 95],
+    [70, 80, 85]
+]
+
+print(buscar_calificacion(tabla_calificaciones, 92))
