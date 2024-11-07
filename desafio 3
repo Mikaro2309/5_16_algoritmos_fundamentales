@@ -1,0 +1,17 @@
+def busqueda_binaria(lista, objetivo):
+    inicio, fin = 0, len(lista) - 1
+    
+    while inicio <= fin:
+        medio = (inicio + fin) // 2
+        if lista[medio] == objetivo:
+            return f"Estudiante {objetivo} encontrado en la posición {medio}"
+        elif lista[medio] < objetivo:
+            inicio = medio + 1
+        else:
+            fin = medio - 1
+    
+    return "Estudiante no encontrado"
+
+# Ejemplo de uso:
+estudiantes = ["Ana", "Bruno", "Carlos", "David", "Elias"]
+print(busqueda_binaria(estudiantes, "Carlos"))
