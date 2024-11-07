@@ -1,0 +1,28 @@
+from collections import deque
+
+class Nodo:
+    def __init__(self, grado, estudiantes=None):
+        self.grado = grado
+        self.estudiantes = estudiantes if estudiantes else []
+        self.hijos = []
+
+def recorrido_por_niveles(raiz):
+    if not raiz:
+        return
+    
+    cola = deque([raiz])
+    
+    while cola:
+        nodo_actual = cola.popleft()
+        print(f"Grado {nodo_actual.grado}: {nodo_actual.estudiantes}")
+        for hijo in nodo_actual.hijos:
+            cola.append(hijo)
+
+# Ejemplo de uso:
+raiz = Nodo(12, ["Alice", "Bob"])
+grado_11 = Nodo(11, ["Charlie", "David"])
+grado_10 = Nodo(10, ["Eve", "Frank"])
+raiz.hijos = [grado_11, grado_10]
+grado_11.hijos = [Nodo(9, ["Grace"])]
+
+recorrido_por_niveles(raiz)
