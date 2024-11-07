@@ -1,0 +1,13 @@
+def ordenamiento_seleccion(estudiantes):
+    n = len(estudiantes)
+    for i in range(n):
+        max_idx = i
+        for j in range(i + 1, n):
+            if estudiantes[j][1] > estudiantes[max_idx][1]:
+                max_idx = j
+        estudiantes[i], estudiantes[max_idx] = estudiantes[max_idx], estudiantes[i]
+
+# Ejemplo de uso:
+estudiantes = [("Ana", 85), ("Bruno", 90), ("Carlos", 78), ("David", 92)]
+ordenamiento_seleccion(estudiantes)
+print(estudiantes)
