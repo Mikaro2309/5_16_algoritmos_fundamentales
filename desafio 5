@@ -1,0 +1,29 @@
+class NodoArbol:
+    def __init__(self, promedio, nombre):
+        self.promedio = promedio
+        self.nombre = nombre
+        self.izquierda = None
+        self.derecha = None
+
+def insertar(nodo, promedio, nombre):
+    if not nodo:
+        return NodoArbol(promedio, nombre)
+    if promedio < nodo.promedio:
+        nodo.izquierda = insertar(nodo.izquierda, promedio, nombre)
+    else:
+        nodo.derecha = insertar(nodo.derecha, promedio, nombre)
+    return nodo
+
+def inorden(nodo):
+    if nodo:
+        inorden(nodo.izquierda)
+        print(f"{nodo.nombre}: {nodo.promedio}")
+        inorden(nodo.derecha)
+
+# Ejemplo de uso:
+arbol = None
+estudiantes = [("Ana", 85), ("Bruno", 90), ("Carlos", 78), ("David", 92)]
+for nombre, promedio in estudiantes:
+    arbol = insertar(arbol, promedio, nombre)
+
+inorden(arbol)
