@@ -19,9 +19,9 @@ def recorrido_por_niveles(raiz):
             cola.append(hijo)
 
 # Ejemplo de uso:
-raiz = Nodo(12, ["Alice", "Bob"])
-grado_11 = Nodo(11, ["Charlie", "David"])
-grado_10 = Nodo(10, ["Eve", "Frank"])
+raiz = Nodo(12, ["Ana", "Bruno"])
+grado_11 = Nodo(11, ["Carlos", "David"])
+grado_10 = Nodo(10, ["Raul", "Franco"])
 raiz.hijos = [grado_11, grado_10]
 grado_11.hijos = [Nodo(9, ["Grace"])]
 
